@@ -1,5 +1,5 @@
 `summary.gmyc` <-
-function(res, second.peak=FALSE) {
+function(res, second.peak=FALSE, ...) {
 	#res = result of GMYC
 	#display summary of GMYC; likelihood values, chi-square test, estimated parameters, etc...
 	

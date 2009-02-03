@@ -5,6 +5,7 @@
 \description{
   ~~ A concise (1-5 lines) description of the dataset. ~~
 }
+
 \usage{data(test.tr)}
 \format{
   The format is:
@@ -16,8 +17,7 @@ List of 4
  - attr(*, "class")= chr "phylo"
 }
 \details{
-  ~~ If necessary, more details than the __description__ above ~~
-}
+An example tree for use with \code{\link{gmyc}}}
 
 \author{Tomochika Fujisawa \email{tomochika.fujisawa05@imperial.ac.uk} and Tim Barraclough \email{t.barraclough@imperial.ac.uk}}
 

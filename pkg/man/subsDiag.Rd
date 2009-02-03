@@ -2,7 +2,7 @@
 \alias{subsDiag}
 
 \title{Apply two types of diagnostics to clustered data.}
-\description{xxx}
+\description{Calculate diagnostics on the subspace identified by cluster analysis}
 
 \usage{
 subsDiag(X, ncl, clustMethod = "hc", nSim = 2000, sigLvl = 0.05, status = TRUE)

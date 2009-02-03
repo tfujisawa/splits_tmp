@@ -208,9 +208,9 @@ function(tr, method = "single", interval = c(0, 5), quiet = FALSE) {
 		l.results <- rep(NA, 7)
 		#x<-optim(c(1, 1),l.min2,method = "BFGS",control=list(fnscale=-1))	#likelihood for GMYC model
 		
-		x <- optim(temp.params, l.min2, method = "Nelder-Mead",control=list(fnscale=-1))
+		#x <- optim(temp.params, l.min2, method = "Nelder-Mead",control=list(fnscale=-1))
 		
-		#x <- optim(c(1, 1), l.min2, method = "Nelder-Mead",control=list(fnscale=-1))
+		x <- optim(c(1, 1), l.min2, method = "Nelder-Mead",control=list(fnscale=-1))
 		
 		#x <- optim(temp.params, l.min2, method = "L-BFGS", control=list(fnscale=-1))
 

@@ -1,5 +1,5 @@
 `dimReduct` <-
-function (XX, how="KG", scale=TRUE) 
+function (XX, how="PA", scale=TRUE) 
 	{
 	if (!is.matrix(XX)) stop("XX is not a matrix.")
 	if (how!="KG" & how!="PA") stop ("Invalid method to reduce dimensions.")

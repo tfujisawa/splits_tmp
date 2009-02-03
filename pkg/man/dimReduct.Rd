@@ -1,20 +1,19 @@
 \name{dimReduct}
 \alias{dimReduct}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{Strip uninformative measurements}
 \description{
  Perform PCA, retain axes based on KG or PA, return these values}
 \usage{
-dimReduct(XX, how = "KG", scale = TRUE)
+dimReduct(XX, how = "PA", scale = TRUE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{XX}{A matrix of measurements.  Each row corresponds to one observation.}
-  \item{how}{PA or KG}
+  \item{how}{PA or KG.  defaults to Horn's Parallel Analysis}
   \item{scale}{scale variances?}
 }
 \details{
-see above
+Horn's Parallel Analysis using \code{\link[paran]{paran}}.  The Kaiser-Guttman criterion using \code{\link[nFactors]{nScree}}.
 }
 \value{
   ~Describe the value returned
@@ -24,7 +23,7 @@ see above
   ...
 }
 
-\author{Thomas H.G. Ezard \email{thomas.ezard@imperial.ac.uk}}
+\author{Thomas H.G. Ezard \email{thomas.ezard@imperial.ac.uk}, but the hard work by Alexis Dinno (see \code{\link[paran]{paran}}) and Gilles Raiche (see \code{\link[nFactors]{nScree}})}
 
 
 \seealso{ ~~objects to See Also as \code{\link{help}}, ~~~ }
