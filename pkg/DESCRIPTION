@@ -1,7 +1,7 @@
 Package: splits
 Type: Package
 Title: SPecies' LImits by Threshold Statistics 
-Version: 1.0
+Version: 1.0-1
 Date: 2009-01-16
 Author: Thomas Ezard, Tomochika Fujisawa and Tim Barraclough
 Maintainer: Thomas Ezard <thomas.ezard@imperial.ac.uk>
