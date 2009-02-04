@@ -27,11 +27,11 @@ Maintainer: Thomas H.G. Ezard \email{thomas.ezard@imperial.ac.uk}.
 \seealso{\code{\link{ddwtGap}}, \code{\link{gmyc}}}
 
 \examples{
-
-data(test.tr)##run the single threshold modeltest1 <- gmyc(test.tr, method="single", interval=c(0, 10))##show summary results, which includes confidence intervals for the single threshold versionsummary(test1)
+data(test.tr)
+test1 <- gmyc(test.tr, method="single", interval=c(0, 10))
+summary(test1)
 
 data(iris)
 irisR <- dimReduct(as.matrix(iris[,-5]))[[1]]
 ddwtGap(as.matrix(irisR),maxClust=10,nRep=50)
-
 }
