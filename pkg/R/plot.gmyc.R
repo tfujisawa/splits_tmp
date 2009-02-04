@@ -1,5 +1,5 @@
 `plot.gmyc` <-
-function(res, ask=TRUE, second.peak=FALSE,file.name=NA,height=96) {
+function(x, ask=TRUE, second.peak=FALSE,file.name=NA,height=96, ...) {
 	#res = result of GMYC
 	#plot results of GMYC analysis; likelihood, LTT plot and tree with clusters colored 
 	
@@ -12,38 +12,38 @@ function(res, ask=TRUE, second.peak=FALSE,file.name=NA,height=96) {
 	if (!is.na(file.name)) {pdf(file=paste(file.name,"ltt&lik.pdf",sep=""))}
 	
 	if (second.peak==TRUE) {
-		tmp<-table(cummax(res$likelihood))
+		tmp<-table(cummax(x$likelihood))
 		lik.peaks<-names(tmp[tmp>20])
-		peak<-which(res$likelihood==lik.peaks[(length(lik.peaks)-1)])}
+		peak<-which(x$likelihood==lik.peaks[(length(lik.peaks)-1)])}
 	
-	if (res[["method"]] == "single") {
+	if (x[["method"]] == "single") {
 		#lineage through time plot with threshold time
-		ltt.plot(res$tree, log="y")
+		ltt.plot(x$tree, log="y")
 		if (second.peak==FALSE) {
-		abline(v=res$threshold.time[which.max(res$likelihood)], col = "red")} else
-		{abline(v=res$threshold.time[peak], col = "red")} 
+		abline(v=x$threshold.time[which.max(x$likelihood)], col = "red")} else
+		{abline(v=x$threshold.time[peak], col = "red")} 
 		#likelihood surface
-		plot(res$threshold.time, res$likelihood, type="l", xlab="Time", ylab="likelihood")
+		plot(x$threshold.time, x$likelihood, type="l", xlab="Time", ylab="likelihood")
 				
 					if (!is.na(file.name)) {dev.off(); pdf(height=height,file=paste(file.name,"clust.pdf",sep=""))}
 				
 		if (second.peak==FALSE) {
-		plot.cluster(res$tree, res$MRCA[[which.max(res$likelihood)]])} else
-		{plot.cluster(res$tree, res$MRCA[[peak]])}
+		plot.cluster(x$tree, x$MRCA[[which.max(x$likelihood)]])} else
+		{plot.cluster(x$tree, x$MRCA[[peak]])}
 		
 					if (!is.na(file.name)) {dev.off()}
 	
-	}  else if (res[["method"]] == "multiple" || res[["method"]] == "exhaustive") {
+	}  else if (x[["method"]] == "multiple" || x[["method"]] == "exhaustive") {
 		#lineage through time plot with threshold time
-		ltt.plot(res$tree, log="y")
-		abline(v=res$threshold.time[[which.max(res$likelihood)]], col = "red")
-		plot.cluster(res$tree, res$MRCA[[which.max(res$likelihood)]])
-	# } else if (res[["method"]] == "multiple") {
-		# plot.cluster(res$tree, res$MRCA[[which.max(res$likelihood)]])
+		ltt.plot(x$tree, log="y")
+		abline(v=x$threshold.time[[which.max(x$likelihood)]], col = "red")
+		plot.cluster(x$tree, x$MRCA[[which.max(x$likelihood)]])
+	# } else if (x[["method"]] == "multiple") {
+		# plot.cluster(x$tree, x$MRCA[[which.max(x$likelihood)]])
 	}
 		
 	#tree with clusters
-	#plot.cluster1(res$tree, res$threshold.time[which.max(res$likelihood)])
+	#plot.cluster1(x$tree, x$threshold.time[which.max(x$likelihood)])
 	par(ask=FALSE)
 }
 

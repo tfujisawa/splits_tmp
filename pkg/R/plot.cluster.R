@@ -105,4 +105,3 @@ function(tr, lthresh, show.tip.label=TRUE, show.node.label=FALSE, cex=0.5) {
 	
 	plot(tr,edge.color=cdat, use.edge.length=1,show.node.label=show.node.label, show.tip.label=show.tip.label, no.margin=FALSE, cex=cex)
 }
-
