@@ -13,7 +13,7 @@ dimReduct(XX, how = "PA", scale = TRUE)
   \item{scale}{scale variances?}
 }
 \details{
-Horn's Parallel Analysis using \code{\link[paran]{paran}}.  The Kaiser-Guttman criterion using \code{\link[nFactors]{nScree}}.
+Horn's Parallel Analysis using \code{\link[paran]{paran}} based on the conservative method illustrated by Dinno (see \code{\link[paran]{paran}}.  The Kaiser-Guttman criterion using \code{\link[nFactors]{nScree}}.  More functionality will be added here in March after fieldwork.
 }
 \value{
   ~Describe the value returned

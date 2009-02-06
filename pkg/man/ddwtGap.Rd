@@ -52,12 +52,12 @@ par(mfrow=c(3,1))
 plot(sp1,pch=c(rep(1,100),rep(16,100)))
 
 ##IDENTIFY CLUSTERS
-#eg1 <- ddwtGap(sp1,10,nRep=50)
+eg1 <- ddwtGap(sp1,10,nRep=50)
 ##PLOT WEIGHTED-GAP AND DD WEIGHTED-GAP
-#plot(colMeans(eg1$wGap),pch=15,type='b',xlab="Number of Clusters", ylab="wtGap",ylim=extendrange(colMeans(eg1$wGap),f=0.2))
+plot(colMeans(eg1$wGap),pch=15,type='b',xlab="Number of Clusters", ylab="wtGap",ylim=extendrange(colMeans(eg1$wGap),f=0.2))
 
-#arrows(1:dim(eg1$wGap)[2],colMeans(eg1$wGap)-colMeans(eg1$seGap), 1:dim(eg1$wGap)[2], colMeans(eg1$wGap)+colMeans(eg1$seGap),length=0.05,angle=90,code=3)
-#plot(colMeans(eg1$DDwGap),pch=15,type='b',xlab="Number of Clusters", ylab="DDwtGap",ylim=extendrange(colMeans(eg1$DDwGap),f=0.2))
+arrows(1:dim(eg1$wGap)[2],colMeans(eg1$wGap)-colMeans(eg1$seGap), 1:dim(eg1$wGap)[2], colMeans(eg1$wGap)+colMeans(eg1$seGap),length=0.05,angle=90,code=3)
+plot(colMeans(eg1$DDwGap),pch=15,type='b',xlab="Number of Clusters", ylab="DDwtGap",ylim=extendrange(colMeans(eg1$DDwGap),f=0.2))
 
 #############################################################
 ##two partially overlapping clusters, no guarantee that they are well-separated
