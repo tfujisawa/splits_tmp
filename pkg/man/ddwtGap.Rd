@@ -49,7 +49,7 @@ x2  <- rnorm(50,1.5,0.2)  ;  y2 <- rnorm(50,mean=1.5,sd=0.2)
 sp1 <- matrix(c(x1,x2,y1,y2),ncol=2,byrow=FALSE)
 ##PLOT DATA
 par(mfrow=c(3,1))
-plot(sp1,pch=c(rep(1,100),rep(16,100)))
+plot(sp1,pch=c(rep(1,50),rep(16,50)))
 
 ##IDENTIFY CLUSTERS
 eg1 <- ddwtGap(sp1,10,nRep=50)
@@ -67,7 +67,7 @@ x2  <- rnorm(50,1.5,0.4)  ;  y2 <- rnorm(50,mean=1.5,sd=0.4)
 sp2 <- matrix(c(x1,x2,y1,y2),ncol=2,byrow=FALSE)
 ##PLOT DATA
 par(mfrow=c(3,1))
-plot(sp2,pch=c(rep(1,100),rep(16,100)))
+plot(sp2,pch=c(rep(1,50),rep(16,50)))
 
 ##IDENTIFY CLUSTERS
 eg2 <- ddwtGap(sp2,10,nRep=50)
@@ -86,7 +86,7 @@ x2  <- rnorm(50,1.5,0.65)  ;  y2 <- rnorm(50,mean=1.5,sd=0.65)
 sp3 <- matrix(c(x1,x2,y1,y2),ncol=2,byrow=FALSE)
 ##PLOT DATA
 par(mfrow=c(3,1))
-plot(sp3,pch=c(rep(1,100),rep(16,100)))
+plot(sp3,pch=c(rep(1,50),rep(16,50)))
 
 ##IDENTIFY CLUSTERS
 eg3 <- ddwtGap(sp3,10,nRep=50)
