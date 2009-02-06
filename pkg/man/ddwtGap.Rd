@@ -72,7 +72,10 @@ plot(sp2,pch=c(rep(1,100),rep(16,100)))
 ##IDENTIFY CLUSTERS
 eg2 <- ddwtGap(sp2,10,nRep=50)
 ##PLOT WEIGHTED-GAP AND DD WEIGHTED-GAP
-plot(colMeans(eg2$wGap),pch=15,type='b',xlab="Number of Clusters", ylab="wtGap",ylim=extendrange(colMeans(eg2$wGap),f=0.2))arrows(1:dim(eg2$wGap)[2],colMeans(eg2$wGap)-colMeans(eg2$seGap), 1:dim(eg2$wGap)[2],colMeans(eg2$wGap)+colMeans(eg2$seGap),length=0.05,angle=90,code=3)
+plot(colMeans(eg2$wGap),pch=15,type='b',xlab="Number of Clusters", ylab="wtGap",ylim=extendrange(colMeans(eg2$wGap),f=0.2))
+
+arrows(1:dim(eg2$wGap)[2],colMeans(eg2$wGap)-colMeans(eg2$seGap), 1:dim(eg2$wGap)[2],colMeans(eg2$wGap)+colMeans(eg2$seGap),length=0.05,angle=90,code=3)
+
 plot(colMeans(eg2$DDwGap),pch=15,type='b',xlab="Number of Clusters", ylab="DDwtGap",ylim=extendrange(colMeans(eg2$DDwGap),f=0.2))
 
 #############################################################
@@ -89,7 +92,9 @@ plot(sp3,pch=c(rep(1,100),rep(16,100)))
 eg3 <- ddwtGap(sp3,10,nRep=50)
 ##PLOT WEIGHTED-GAP AND DD WEIGHTED-GAP
 plot(colMeans(eg3$wGap),pch=15,type='b',xlab="Number of #Clusters",ylab="wtGap",ylim=extendrange(colMeans(eg3$wGap),f=0.2))
-arrows(1:dim(eg3$wGap)[2],colMeans(eg3$wGap)-colMeans(eg3$seGap), 1:dim(eg3$wGap)[2],colMeans(eg3$wGap)+colMeans(eg3$seGap),length=0.05,angle=90,code=3)
+
+
+arrows(1:dim(eg3$wGap)[2],colMeans(eg3$wGap)-colMeans(eg3$seGap), 1:dim(eg3$wGap)[2],colMeans(eg3$wGap)+colMeans(eg3$seGap),length=0.05,angle=90,code=3)
 
 #############################################################
 ##use real data
