@@ -37,7 +37,10 @@ A list containing:
   \item{seGap}{The standard errors associated with each wGap entry.}
   \item{DDwGap}The double-difference weighted-gap statistic (Yan & Ye, 2007) for each *truth* and number of clusters.}
 
-\references{Yan and Ye 2007}
+\references{
+Tibshirani, R., G. Walther, and T. Hastie. 2001. Estimating the number of data clusters via the gap statistic. Journal of the Royal Statistical Society B 63:411–423.
+Yan, M., and K. Ye. 2007. Determining the Number of Clusters Using the Weighted Gap statistic. Biometrics 63:1031-1037.
+}
 \author{Thomas H.G. Ezard \email{thomas.ezard@imperial.ac.uk}}
 \seealso{\code{\link{dimReduct}}, \code{\link{subsDiag}}}
 \examples{
