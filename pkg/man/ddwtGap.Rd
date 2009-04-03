@@ -37,7 +37,7 @@ A list containing:
   \item{seGap}{The standard errors associated with each wGap entry.}
   \item{DDwGap}The double-difference weighted-gap statistic (Yan & Ye, 2007) for each *truth* and number of clusters.}
 
-\references{ ~put references to the literature/web site here ~ }
+\references{Yan and Ye 2007}
 \author{Thomas H.G. Ezard \email{thomas.ezard@imperial.ac.uk}}
 \seealso{\code{\link{dimReduct}}, \code{\link{subsDiag}}}
 \examples{
