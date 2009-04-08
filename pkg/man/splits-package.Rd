@@ -19,9 +19,9 @@ LazyLoad: \tab yes\cr
 }
 }
 
-\author{Thomas Ezard \email{thomas.ezard@imperial.ac.uk}, Tomochika Fujisawa \email{tomochika.fujisawa05@imperial.ac.uk} and Tim Barraclough \email{t.barraclough@imperial.ac.uk}.
+\author{Thomas Ezard \email{thomas.ezard [at] imperial [dot] ac [dot] uk}, Tomochika Fujisawa \email{tomochika.fujisawa05[at] imperial [dot] ac [dot] uk} and Tim Barraclough \email{t.barraclough[at] imperial [dot] ac [dot] uk}.
 
-Maintainer: Thomas H.G. Ezard \email{thomas.ezard@imperial.ac.uk}.
+Maintainer: Thomas H.G. Ezard \email{thomas.ezard [at] imperial [dot] ac [dot] uk}.
 }
 
 \seealso{\code{\link{ddwtGap}}, \code{\link{gmyc}}}

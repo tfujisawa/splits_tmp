@@ -1,35 +1,46 @@
 \name{dimReduct}
 \alias{dimReduct}
-\title{Strip uninformative measurements}
+\title{Strip *uninformative* measurements}
 \description{
- Perform PCA, retain axes based on KG or PA, return these values}
+This function is essentially a wrapper around \code{\link[nFactors]{nScree}} and \code{\link[paran]{paran}}, taking a matrix of measurements and returning the predictions from a Principal Components Analysis ("PCA").  The number of axes in the PCA predictions is determined from either the Kaiser-Guttman criterion ("KG") or Horn's Parallel Analysis ("PA") depending on which is specified.
+}
 \usage{
-dimReduct(XX, how = "PA", scale = TRUE)
+dimReduct(XX, how = "PA", scale = TRUE, iterations, centile)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{XX}{A matrix of measurements.  Each row corresponds to one observation.}
-  \item{how}{PA or KG.  defaults to Horn's Parallel Analysis}
-  \item{scale}{scale variances?}
+  \item{how}{PA or KG.  defaults to PA}
+  \item{scale}{Scale variances?}
+  \item{iterations}{The number of iterations used for PA.}
+  \item{centile}{The centile }
 }
 \details{
-Horn's Parallel Analysis using \code{\link[paran]{paran}} based on the conservative method illustrated by Dinno (see \code{\link[paran]{paran}}.  The Kaiser-Guttman criterion using \code{\link[nFactors]{nScree}}.  More functionality will be added here in March after fieldwork.
+PA is implemented using the excellent \code{\link[paran]{paran}} using the default settings, but can be adapted as required (e.g. to apply the revisions to address Glorfeld's claims of over-retention of variables).  See \code{\link[paran]{paran}}.  KG is implemented from the standard deviations of the PCA model output.  
+
+\code{\link{prcomp}} is used to fit the PCA model, which assumes linear measurements.  Transformation may be required prior to the PCA.
+
+Multiple measurements on a focal individual are often highly correlated.  Similarities along one axis might mask differences along another and thus generate inflated estimates of similarity between individuals (unless prior weighting is given to certain axes).  Rather than arbitrary assignment of a, say, 5% threshold, the number of axes that adequately describe each individual retained can be determined using PA or KG.  Both too many or too few axes of variation can generate bias.
+
 }
 \value{
-  ~Describe the value returned
-  If it is a LIST, use
-  \item{comp1 }{Description of 'comp1'}
-  \item{comp2 }{Description of 'comp2'}
-  ...
+  \item{sS}{A matrix of predicted values from the PCA, with observations as rows and model predictions as columns.
 }
 
-\author{Thomas H.G. Ezard \email{thomas.ezard@imperial.ac.uk}, but the hard work by Alexis Dinno (see \code{\link[paran]{paran}}) and Gilles Raiche (see \code{\link[nFactors]{nScree}})}
+\author{Thomas H.G. Ezard \email{thomas.ezard [at] imperial [dot] ac [dot] uk}, but the hard work for PA by Alexis Dinno (see \code{\link[paran]{paran}})}
+\references{
+Dinno, A. in press. Implementing Horns Parallel Analysis for Principal Components Analysis and Factor Analysis. The Stata Journal.
+Ezard, T.H.G., Pearson, P.N. & Purvis, A. in review.  Algorithmic Approaches to Delimit Species in Multidimensional Morphospace.
+Glorfeld, L. W. 1995. An Improvement on Horn's Parallel Analysis Methodology for Selecting the Correct Number of Factors to Retain. Ed. Psych.Meas. 55(3): 377Ð393
+Guttman, L. 1954. Some necessary conditions for common factor analysis. Psychometrika 19:149-162.
+Horn, J. L. 1965. A rationale and a test for the number of factors in factor analysis. Psychometrika 30:179Ð185.
+Kaiser, H. F. 1960. The application of electronic computer to factor analysis. Ed. Pysch. Meas. 20:141-151.
+}
+\seealso{\code{\link{prcomp}} and \code{\link{princomp}},\code{\link[paran]{paran}}}
 
-
-\seealso{ ~~objects to See Also as \code{\link{help}}, ~~~ }
 \examples{
 data(iris)
-dimReduct(as.matrix(iris[,-5],ncol=4))
+dimReduct(iris[,-5])
 
 }
 \keyword{utilities}{dimReduct}
