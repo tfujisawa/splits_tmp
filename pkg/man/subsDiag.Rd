@@ -1,7 +1,7 @@
 \name{subsDiag}
 \alias{subsDiag}
 
-\title{Apply two types of diagnostics to clustered data.}
+\title{Apply two types of diagnostics to clustered data}
 \description{Calculate diagnostics on the subspace identified by cluster analysis}
 
 \usage{
@@ -24,9 +24,9 @@ Brooks (1994) calculated the influence of each data point by jack-knifing, i.e. 
 
 Fung’s (1999) approach identifies extreme observations outside the expected range of a particular sample.
 
+Note that data need not be questionable or unusual to exert large influence.
 }
 
-\warning{Data need not be questionable or unusual to exert large influence.}
 \value{
 A list containing:
   \item{both}{The index of observations that are BOTH infleuntial and extreme.}
@@ -36,7 +36,8 @@ A list containing:
 \author{Thomas H.G. Ezard \email{thomas.ezard [at] imperial [dot] ac [dot] uk}}
 \references{
 Brooks, S. P. 1994. Diagnostics for Principal Components: Influence Functions as Diagnostic Tools. The Statistician 43:483-494.
-Ezard, T.H.G., Pearson, P.N. & Purvis, A. in review.  Algorithmic Approaches to Delimit Species in Multidimensional Morphospace.Fung, W.-K. 1999. Outlier Diagnostics in Several Multivariate Samples. The Statistician 48:73-84.
+Ezard, T.H.G., Pearson, P.N. & Purvis, A. in review.  Algorithmic Approaches to Delimit Species in Multidimensional Morphospace.
+Fung, W.-K. 1999. Outlier Diagnostics in Several Multivariate Samples. The Statistician 48:73-84.
 }
 \seealso{\code{\link{dimReduct}}, \code{\link{ddwtGap}}}
 \examples{
