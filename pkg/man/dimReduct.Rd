@@ -5,7 +5,7 @@
 This function is essentially a wrapper around \code{\link[nFactors]{nScree}} and \code{\link[paran]{paran}}, taking a matrix of measurements and returning the predictions from a Principal Components Analysis PCA.  The number of axes in the PCA predictions is determined from either the Kaiser-Guttman criterion \code{KG} or Horn's Parallel Analysis \code{PA} depending on which is specified.
 }
 \usage{
-dimReduct(XX, how = "PA", scale = TRUE, iterations, centile)
+dimReduct(XX, how = "PA", scale = TRUE, iterations=0, centile=0)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -36,6 +36,7 @@ Guttman, L. 1954. Some necessary conditions for common factor analysis. Psychome
 Horn, J. L. 1965. A rationale and a test for the number of factors in factor analysis. Psychometrika 30, 179Ð185.
 Kaiser, H. F. 1960. The application of electronic computer to factor analysis. Ed. Pysch. Meas. 20, 141-151.
 }
+
 \seealso{\code{\link{prcomp}} and \code{\link{princomp}},\code{\link[paran]{paran}}}
 
 \examples{
@@ -43,4 +44,3 @@ data(iris)
 dimReduct(iris[,-5])
 
 }
-\keyword{utilities}{dimReduct}

@@ -28,4 +28,3 @@ data(test.tr)
 str(test.tr)
 
 }
-\keyword{datasets}

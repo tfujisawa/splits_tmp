@@ -32,6 +32,7 @@ test1 <- gmyc(test.tr, method="single", interval=c(0, 10))
 summary(test1)
 
 data(iris)
-irisR <- dimReduct(as.matrix(iris[,-5]))[[1]]
+irisR <- dimReduct(iris[,-5])
 ddwtGap(as.matrix(irisR),maxClust=10,nRep=50)
+
 }

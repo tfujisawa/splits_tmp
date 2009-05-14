@@ -20,6 +20,4 @@ summary(test2)
 plot(test2)
 
 compare(test1,test2)  ## compare multiple vs single threshold models
-##Multiple threshold model is not a significant improvement in this case
-
-}\keyword{utilities}{gmyc}
+##Multiple threshold model is not a significant improvement in this case}

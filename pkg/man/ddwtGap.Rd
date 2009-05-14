@@ -35,17 +35,18 @@ Yan & Ye (2007) used \code{link{kmeans}}, which (assuming two-dimensions) is bia
 
 \value{
 A list containing:
-  \item{mnGhatWG} {The mean number of well-separated clusters based on wGap.}
+  \item{mnGhatWG}{The mean number of well-separated clusters based on wGap.}
   \item{allGhatWG}{all Ghats: the number of well-separated clusters from each simulation/for each truth based on wGap.}
-  \item{mnGhatDD} {The mean number of well-separated clusters based on DDwGap.}
+  \item{mnGhatDD}{The mean number of well-separated clusters based on DDwGap.}
   \item{allGhatDD}{all Ghats: the number of well-separated clusters from each simulation/for each truth based on DDwGap.}
   \item{wGap}{A matrix of weighted-gap statistics (Tibshirani et al., 2001) for each truth and number of clusters.}
   \item{seGap}{The standard errors associated with each wGap entry.}
   \item{DDwGap}The double-difference weighted-gap statistic (Yan & Ye, 2007) for each truth and number of clusters.}
 
 \references{
-Dudoit, S., and J. Fridlyand. 2002. A prediction-based resampling method for estimating the number of clusters in a dataset. Gen. Biol. 3::research0036.1Ð0036.21.
-Ezard, T.H.G., Pearson, P.N. & Purvis, A. in review.  Algorithmic Approaches to Delimit Species in Multidimensional Morphospace.Fraley, C., and A. E. Raftery. 2002. Model-based clustering, discriminant analysis, and density estimation. J. Amer. Stat. Ass. 97:611-631.
+Dudoit, S., and J. Fridlyand. 2002. A prediction-based resampling method for estimating the number of clusters in a dataset. Gen. Biol. 3::research0036.1ï¿½0036.21.
+Ezard, T.H.G., Pearson, P.N. & Purvis, A. in review.  Algorithmic Approaches to Delimit Species in Multidimensional Morphospace.
+Fraley, C., and A. E. Raftery. 2002. Model-based clustering, discriminant analysis, and density estimation. J. Amer. Stat. Ass. 97:611-631.
 Oh, M.-S., and A. E. Raftery. 2007. Model-Based Clustering with Dissimilarities: A Bayesian Approach. J. Comp. Graph. Stat. 16:559-585.
 Tibshirani, R., G. Walther, and T. Hastie. 2001. Estimating the number of data clusters via the gap statistic. J. Roy Stat. Soc. B 63:411â€“423.
 Yan, M., and K. Ye. 2007. Determining the Number of Clusters Using the Weighted Gap statistic. Biometrics 63:1031-1037.

@@ -46,7 +46,3 @@ data(iris)
 subsDiag(as.matrix(iris[,1:4]), 3)
 
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{utilities}{subsDiag}
-
