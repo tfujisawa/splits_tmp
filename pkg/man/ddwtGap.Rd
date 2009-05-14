@@ -70,7 +70,7 @@ par(mfrow=c(3,1))
 plot(sp1,pch=c(rep(1,50),rep(16,50)))
 
 ##IDENTIFY CLUSTERS
-eg1 <- ddwtGap(sp1,10,nRep=50)
+eg1 <- ddwtGap(sp1)
 ##PLOT WEIGHTED-GAP AND DD WEIGHTED-GAP
 plot(colMeans(eg1$wGap),pch=15,type='b',xlab="Number of Clusters", ylab="wtGap",ylim=extendrange(colMeans(eg1$wGap),f=0.2))
 
@@ -88,7 +88,7 @@ par(mfrow=c(3,1))
 plot(sp2,pch=c(rep(1,50),rep(16,50)))
 
 ##IDENTIFY CLUSTERS
-eg2 <- ddwtGap(sp2,10,nRep=50)
+eg2 <- ddwtGap(sp2)
 ##PLOT WEIGHTED-GAP AND DD WEIGHTED-GAP
 plot(colMeans(eg2$wGap),pch=15,type='b',xlab="Number of Clusters", ylab="wtGap",ylim=extendrange(colMeans(eg2$wGap),f=0.2))
 arrows(1:dim(eg2$wGap)[2],colMeans(eg2$wGap)-colMeans(eg2$seGap), 1:dim(eg2$wGap)[2],colMeans(eg2$wGap)+colMeans(eg2$seGap),length=0.05,angle=90,code=3)
@@ -105,7 +105,7 @@ par(mfrow=c(3,1))
 plot(sp3,pch=c(rep(1,50),rep(16,50)))
 
 ##IDENTIFY CLUSTERS
-eg3 <- ddwtGap(sp3,10,nRep=50)
+eg3 <- ddwtGap(sp3)
 ##PLOT WEIGHTED-GAP AND DD WEIGHTED-GAP
 plot(colMeans(eg3$wGap),pch=15,type='b',xlab="Number of #Clusters",ylab="wtGap",ylim=extendrange(colMeans(eg3$wGap),f=0.2))
 arrows(1:dim(eg3$wGap)[2],colMeans(eg3$wGap)-colMeans(eg3$seGap), 1:dim(eg3$wGap)[2],colMeans(eg3$wGap)+colMeans(eg3$seGap),length=0.05,angle=90,code=3)
@@ -113,18 +113,17 @@ arrows(1:dim(eg3$wGap)[2],colMeans(eg3$wGap)-colMeans(eg3$seGap), 1:dim(eg3$wGap
 #############################################################
 ##use real data
 data(iris)
-	
 ##COMPARE THE RESULTS USING kmeans TO hclust.
-irisHC <- ddwtGap(as.matrix(iris[,1:4]),maxClust=10,nRep=50)
+irisHC <- ddwtGap(iris[,-5])
 irisHC	##consistently finds three well-separated clusters using DDwGap and wGap
-irisKM <- ddwtGap(as.matrix(iris[,1:4]),maxClust=10,nRep=50,method="km")				
+irisKM <- ddwtGap(iris[,-5], method="km")				
 irisKM	##consistently finds only two well-separated clusters using DDwGap; wGap is not consistent. 
 
 ##HOW WELL DOES THE hclust METHOD DO?
+irisR <- dimReduct(iris[,-5])
 modelDefn <- cutree(hclust(dist(irisR)),3)
 tapply(modelDefn,list(modelDefn,iris[,5]),length)
-##overlaps on versicolor, but gets I. setosa and I. virginica pretty bang on.
-##note that labels in modelDefn (1,2 or 3) are arbitrary.
+##overlaps on versicolor, but gets I. setosa and I. virginica pretty bang on.  NB labels in modelDefn (1,2 or 3) are arbitrary.
 
 ##TRY THE STRIPPED-DIMENSION DATA	
 irisR <- dimReduct(iris[,-5])

@@ -39,6 +39,7 @@ function (XX, maxClust=11, nTruth=20, nRep=100, status=TRUE, method="hc", genRnd
 		
 	AA1<-c();AA2<-c();AA3<-c()
 	wGap  <- DDwGap <- seGap <- matrix(0,nrow=nTruth,ncol=maxClust)
+	XX <- as.matrix(XX)
 
 	for (a in 1:nTruth) 
 		{									
