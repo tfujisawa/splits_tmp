@@ -16,7 +16,7 @@ dimReduct(XX, how = "PA", scale = TRUE, iterations=0, centile=0)
   \item{centile}{The centile }
 }
 \details{
-PA is implemented using the excellent \code{\link[paran]{paran}} using the default settings, but can be adapted as required, e.g. to apply the revisions to address Glorfeld's claims of over-retention of variables.  See \code{\link[paran]{paran}}.  KG is implemented from the standard deviations of the PCA model output.  
+PA is implemented using the excellent \code{\link[paran]{paran}} with default settings, but can be adapted as required, e.g. to apply the revisions to address Glorfeld's claims of over-retention of variables.  See \code{\link[paran]{paran}}.  KG is implemented from the standard deviations of the PCA model output.  
 
 \code{\link{prcomp}} is used to fit the PCA model, which assumes linear measurements.  Transformation may be required prior to the PCA.
 
@@ -30,10 +30,15 @@ Multiple measurements on a focal individual are often highly correlated.  Simila
 
 \references{
 Dinno, A. in press. Implementing Horns Parallel Analysis for Principal Components Analysis and Factor Analysis. The Stata Journal.
-Ezard, T.H.G., Pearson, P.N. & Purvis, A. in review.  Algorithmic Approaches to Delimit Species in Multidimensional Morphospace.
-Glorfeld, L. W. 1995. An Improvement on Horn's Parallel Analysis Methodology for Selecting the Correct Number of Factors to Retain. Ed. Psych.Meas. 55, 377Ð393
+
+Ezard, T.H.G., Pearson, P.N. & Purvis, A. in some stage of rejection.  Algorithmic Approaches to Delimit Species in Multidimensional Morphospace.
+
+Glorfeld, L. W. 1995. An Improvement on Horn's Parallel Analysis Methodology for Selecting the Correct Number of Factors to Retain. Ed. Psych.Meas. 55, 377-393
+
 Guttman, L. 1954. Some necessary conditions for common factor analysis. Psychometrika 19, 149-162.
-Horn, J. L. 1965. A rationale and a test for the number of factors in factor analysis. Psychometrika 30, 179Ð185.
+
+Horn, J. L. 1965. A rationale and a test for the number of factors in factor analysis. Psychometrika 30, 179-185.
+
 Kaiser, H. F. 1960. The application of electronic computer to factor analysis. Ed. Pysch. Meas. 20, 141-151.
 }
 

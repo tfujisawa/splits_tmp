@@ -22,7 +22,7 @@ Model diagnostics assess the validity of particular assumptions.  Application of
 
 Brooks (1994) calculated the influence of each data point by jack-knifing, i.e. by comparing the dominant eigenvalues of the data with and without a focal observation.  A large difference in dominant eigenvalues implies that the focal observation exerts large influence in the sample, whose significance can be assessed using Monte Carlo estimates.  If variables are not normally distributed , reference data sets can be generated using singular-value decomposition.
 
-Fung’s (1999) approach identifies extreme observations outside the expected range of a particular sample.
+Fung (1999) devised a method to identify extreme observations outside the expected range of a particular sample.
 
 Note that data need not be questionable or unusual to exert large influence.
 }

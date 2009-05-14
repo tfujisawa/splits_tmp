@@ -7,13 +7,13 @@
 Calculate the number of clusters using adapted versions of the weighted-gap (wtGap, Tibshirani et al., 2001) and double-difference weighted-gap (DDwtGap, Yan & Ye, 2007) algorithms.  Two clustering methods are implemented to identify the 'true' structure of the data: kmeans and hierarchical clustering.  See \code{details} below.
 }
 \usage{
-ddwtGap(XX, maxClust, nTruth = 20, nRep = 100, status = TRUE, method = "hc", genRndm = "pc")
+ddwtGap(XX, maxClust=11, nTruth = 20, nRep = 100, status = TRUE, method = "hc", genRndm = "pc")
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{XX}{A matrix of measurements.  Each row corresponds to one observation.}
   \item{maxClust}{The maximum number of clusters to calculate the statistics for.  Note that the DD weighted gap only returns values between 2 and (maxClust-1) clusters.}
-  \item{nTruth}{Number of times to repeat procedures with different seeds used to calculate the 'truth'.}
+  \item{nTruth}{Number of times to repeat procedures with different seeds used to calculate the so-called truth.}
   \item{nRep}{The number of reference data sets used to calculate standard errors around the weighted-gap statistic.}
   \item{status}{Should progress updates be returned?  Defaults to TRUE.}
   \item{method}{Which clustering method should be employed?  Defaults to \code{hc} for hierarchical clustering; use \code{km} for kmeans.}
@@ -35,20 +35,25 @@ Yan & Ye (2007) used \code{link{kmeans}}, which (assuming two-dimensions) is bia
 
 \value{
 A list containing:
-  \item{mnGhatWG}{The mean number of well-separated clusters based on wGap.}
-  \item{allGhatWG}{all Ghats: the number of well-separated clusters from each simulation/for each truth based on wGap.}
-  \item{mnGhatDD}{The mean number of well-separated clusters based on DDwGap.}
-  \item{allGhatDD}{all Ghats: the number of well-separated clusters from each simulation/for each truth based on DDwGap.}
-  \item{wGap}{A matrix of weighted-gap statistics (Tibshirani et al., 2001) for each truth and number of clusters.}
+  \item{mnGhatWG}{The mean number of well separated clusters based on wGap.}
+  \item{allGhatWG}{all Ghats: the number of well separated clusters from each simulation/for each truth based on wGap.}
+  \item{mnGhatDD}{The mean number of well separated clusters based on DDwGap.}
+  \item{allGhatDD}{all Ghats: the number of well separated clusters from each simulation/for each truth based on DDwGap.}
+  \item{wGap}{A matrix of weighted gap statistics (Tibshirani et al., 2001) for each truth and number of clusters.}
   \item{seGap}{The standard errors associated with each wGap entry.}
-  \item{DDwGap}The double-difference weighted-gap statistic (Yan & Ye, 2007) for each truth and number of clusters.}
+  \item{DDwGap}The double difference weighted gap statistic (Yan & Ye, 2007) for each truth and number of clusters.}
 
 \references{
-Dudoit, S., and J. Fridlyand. 2002. A prediction-based resampling method for estimating the number of clusters in a dataset. Gen. Biol. 3::research0036.1�0036.21.
+Dudoit, S., and J. Fridlyand. 2002. A prediction-based resampling method for estimating the number of clusters in a dataset. Gen. Biol. 3::research0036.1-0036.21.
+
 Ezard, T.H.G., Pearson, P.N. & Purvis, A. in review.  Algorithmic Approaches to Delimit Species in Multidimensional Morphospace.
+
 Fraley, C., and A. E. Raftery. 2002. Model-based clustering, discriminant analysis, and density estimation. J. Amer. Stat. Ass. 97:611-631.
+
 Oh, M.-S., and A. E. Raftery. 2007. Model-Based Clustering with Dissimilarities: A Bayesian Approach. J. Comp. Graph. Stat. 16:559-585.
-Tibshirani, R., G. Walther, and T. Hastie. 2001. Estimating the number of data clusters via the gap statistic. J. Roy Stat. Soc. B 63:411–423.
+
+Tibshirani, R., G. Walther, and T. Hastie. 2001. Estimating the number of data clusters via the gap statistic. J. Roy Stat. Soc. B 63: 411-423.
+
 Yan, M., and K. Ye. 2007. Determining the Number of Clusters Using the Weighted Gap statistic. Biometrics 63:1031-1037.
 }
 \author{Thomas H.G. Ezard \email{thomas.ezard [at] imperial [dot] ac [dot] uk}}
@@ -70,7 +75,6 @@ eg1 <- ddwtGap(sp1,10,nRep=50)
 plot(colMeans(eg1$wGap),pch=15,type='b',xlab="Number of Clusters", ylab="wtGap",ylim=extendrange(colMeans(eg1$wGap),f=0.2))
 
 arrows(1:dim(eg1$wGap)[2],colMeans(eg1$wGap)-colMeans(eg1$seGap), 1:dim(eg1$wGap)[2], colMeans(eg1$wGap)+colMeans(eg1$seGap),length=0.05,angle=90,code=3)
-
 plot(colMeans(eg1$DDwGap),pch=15,type='b',xlab="Number of Clusters", ylab="DDwtGap",ylim=extendrange(colMeans(eg1$DDwGap),f=0.2))
 
 #############################################################
@@ -117,18 +121,15 @@ irisKM <- ddwtGap(as.matrix(iris[,1:4]),maxClust=10,nRep=50,method="km")
 irisKM	##consistently finds only two well-separated clusters using DDwGap; wGap is not consistent. 
 
 ##HOW WELL DOES THE hclust METHOD DO?
-modelDefn <- cutree(hclust(dist(as.matrix(iris[,1:4]))),3)
+modelDefn <- cutree(hclust(dist(irisR)),3)
 tapply(modelDefn,list(modelDefn,iris[,5]),length)
 ##overlaps on versicolor, but gets I. setosa and I. virginica pretty bang on.
 ##note that labels in modelDefn (1,2 or 3) are arbitrary.
 
 ##TRY THE STRIPPED-DIMENSION DATA	
-irisR <- dimReduct(as.matrix(iris[,1:4]))
-modelDefn <- cutree(hclust(dist(as.matrix(irisR[[1]]))),3)
+irisR <- dimReduct(iris[,-5])
+modelDefn <- cutree(hclust(dist(irisR)),3)
 tapply(modelDefn,list(modelDefn,iris[,5]),length)
 ##better
 
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{utilities}{ddwtGap}

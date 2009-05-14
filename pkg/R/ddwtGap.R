@@ -1,5 +1,5 @@
 `ddwtGap` <-
-function (XX, maxClust, nTruth=20, nRep=100, status=TRUE, method="hc", genRndm="pc")
+function (XX, maxClust=11, nTruth=20, nRep=100, status=TRUE, method="hc", genRndm="pc")
 	{
 	getWbarK<-function (kcl,space=XX,method=method) 
 		{
