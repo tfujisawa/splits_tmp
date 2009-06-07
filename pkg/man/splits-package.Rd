@@ -26,6 +26,6 @@ Maintainer: Thomas H.G. Ezard \email{thomas.ezard [at] imperial [dot] ac [dot] u
 \seealso{\code{\link{ddwtGap}}, \code{\link{gmyc}}}
 
 \examples{
-##see those on by following the links above
+##follow the links above
 
 }

@@ -8,7 +8,8 @@
 Calculate the number of clusters using adapted versions of the weighted-gap (wtGap, Tibshirani et al., 2001) and double-difference weighted-gap (DDwtGap, Yan & Ye, 2007) algorithms.  Two clustering methods are implemented to identify the 'true' structure of the data: kmeans and hierarchical clustering.  See \code{details} below.
 }
 \usage{
-ddwtGap(XX, maxClust=11, nTruth = 20, nRep = 100, status = TRUE, method = "hc", genRndm = "pc")
+ddwtGap(XX, maxClust=11, nTruth = 20, nRep = 100, 
+     status = TRUE, method = "hc", genRndm = "pc")
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -72,10 +73,13 @@ plot(sp1,pch=c(rep(1,50),rep(16,50)))
 ##IDENTIFY CLUSTERS
 eg1 <- ddwtGap(sp1)
 ##PLOT WEIGHTED-GAP AND DD WEIGHTED-GAP
-plot(colMeans(eg1$wGap),pch=15,type='b',xlab="Number of Clusters", ylab="wtGap",ylim=extendrange(colMeans(eg1$wGap),f=0.2))
+plot(colMeans(eg1$wGap),pch=15,type='b',xlab="Number of Clusters", ylab="wtGap",
+    ylim=extendrange(colMeans(eg1$wGap),f=0.2))
 
-arrows(1:dim(eg1$wGap)[2],colMeans(eg1$wGap)-colMeans(eg1$seGap), 1:dim(eg1$wGap)[2], colMeans(eg1$wGap)+colMeans(eg1$seGap),length=0.05,angle=90,code=3)
-plot(colMeans(eg1$DDwGap),pch=15,type='b',xlab="Number of Clusters", ylab="DDwtGap",ylim=extendrange(colMeans(eg1$DDwGap),f=0.2))
+arrows(1:dim(eg1$wGap)[2],colMeans(eg1$wGap)-colMeans(eg1$seGap), 
+    1:dim(eg1$wGap)[2], colMeans(eg1$wGap)+colMeans(eg1$seGap),length=0.05,angle=90,code=3)
+plot(colMeans(eg1$DDwGap),pch=15,type='b',ylim=extendrange(colMeans(eg1$DDwGap),f=0.2),
+    xlab="Number of Clusters", ylab="DDwtGap")
 
 #############################################################
 ##use real data

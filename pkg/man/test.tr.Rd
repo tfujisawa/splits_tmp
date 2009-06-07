@@ -3,7 +3,7 @@
 \docType{data}
 \title{A test tree for use with gmyc.}
 \description{
-  ~~ A concise (1-5 lines) description of the dataset. ~~
+A test tree for use with gmyc
 }
 
 \usage{data(test.tr)}
@@ -14,6 +14,7 @@ List of 4
  $ Nnode      : int 149
  $ tip.label  : chr [1:150] "spec1.5" "spec1.4" "spec1.3" "spec1.2" ...
  $ edge.length: num [1:298] 0.0454 0.35302 0.59264 0.00541 0.00243 ...
+ 
  - attr(*, "class")= chr "phylo"
 }
 \details{
