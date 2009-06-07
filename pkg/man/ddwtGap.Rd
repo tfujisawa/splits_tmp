@@ -2,6 +2,7 @@
 \alias{ddwtGap}
 \alias{getWbarK}
 \alias{genRefdata}
+  
 \title{Identify the Number of Clusters in a Data Matrix.}
 \description{
 Calculate the number of clusters using adapted versions of the weighted-gap (wtGap, Tibshirani et al., 2001) and double-difference weighted-gap (DDwtGap, Yan & Ye, 2007) algorithms.  Two clustering methods are implemented to identify the 'true' structure of the data: kmeans and hierarchical clustering.  See \code{details} below.
@@ -11,13 +12,13 @@ ddwtGap(XX, maxClust=11, nTruth = 20, nRep = 100, status = TRUE, method = "hc", 
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{XX}{A matrix of measurements.  Each row corresponds to one observation.}
-  \item{maxClust}{The maximum number of clusters to calculate the statistics for.  Note that the DD weighted gap only returns values between 2 and (maxClust-1) clusters.}
-  \item{nTruth}{Number of times to repeat procedures with different seeds used to calculate the so-called truth.}
-  \item{nRep}{The number of reference data sets used to calculate standard errors around the weighted-gap statistic.}
-  \item{status}{Should progress updates be returned?  Defaults to TRUE.}
-  \item{method}{Which clustering method should be employed?  Defaults to \code{hc} for hierarchical clustering; use \code{km} for kmeans.}
-  \item{genRndm}{How should the random reference data be generated?  Defaults to \code{pc} for principal components, which simulates data that approximates the distribution of the original data in XX; use "uni" for uniform random data across the range of observations in XX.}
+\item{XX}{A matrix of measurements.  Each row corresponds to one observation.}
+\item{maxClust}{The maximum number of clusters to calculate the statistics for.  Note that the DD weighted gap only returns values between 2 and (maxClust-1) clusters.}
+\item{nTruth}{Number of times to repeat procedures with different seeds used to calculate the so-called truth.}
+\item{nRep}{The number of reference data sets used to calculate standard errors around the weighted-gap statistic.}
+\item{status}{Should progress updates be returned?  Defaults to TRUE.}
+\item{method}{Which clustering method should be employed?  Defaults to \code{hc} for hierarchical clustering; use \code{km} for kmeans.}
+\item{genRndm}{How should the random reference data be generated?  Defaults to \code{pc} for principal components, which simulates data that approximates the distribution of the original data in XX; use "uni" for uniform random data across the range of observations in XX.}
 }
 \details{
 
@@ -35,13 +36,13 @@ Yan & Ye (2007) used \code{link{kmeans}}, which (assuming two-dimensions) is bia
 
 \value{
 A list containing:
-  \item{mnGhatWG}{The mean number of well separated clusters based on wGap.}
-  \item{allGhatWG}{all Ghats: the number of well separated clusters from each simulation/for each truth based on wGap.}
-  \item{mnGhatDD}{The mean number of well separated clusters based on DDwGap.}
-  \item{allGhatDD}{all Ghats: the number of well separated clusters from each simulation/for each truth based on DDwGap.}
-  \item{wGap}{A matrix of weighted gap statistics (Tibshirani et al., 2001) for each truth and number of clusters.}
-  \item{seGap}{The standard errors associated with each wGap entry.}
-  \item{DDwGap}The double difference weighted gap statistic (Yan & Ye, 2007) for each truth and number of clusters.}
+\item{mnGhatWG}{The mean number of well separated clusters based on wGap.}
+\item{allGhatWG}{all Ghats: the number of well separated clusters from each simulation/for each truth based on wGap.}
+\item{mnGhatDD}{The mean number of well separated clusters based on DDwGap.}
+\item{allGhatDD}{all Ghats: the number of well separated clusters from each simulation/for each truth based on DDwGap.}
+\item{wGap}{A matrix of weighted gap statistics (Tibshirani et al., 2001) for each truth and number of clusters.}
+\item{seGap}{The standard errors associated with each wGap entry.}
+\item{DDwGap}The double difference weighted gap statistic (Yan & Ye, 2007) for each truth and number of clusters.}
 
 \references{
 Dudoit, S., and J. Fridlyand. 2002. A prediction-based resampling method for estimating the number of clusters in a dataset. Gen. Biol. 3::research0036.1-0036.21.
@@ -60,10 +61,9 @@ Yan, M., and K. Ye. 2007. Determining the Number of Clusters Using the Weighted 
 \seealso{\code{\link{dimReduct}}, \code{\link{subsDiag}}}
 \examples{
 #############################################################
-##two well separated clusters
 ##GENERATE RANDOM DATA
-x1  <- rnorm(50,0.5,0.2)  ;  y1 <- rnorm(50,mean=0.5,sd=0.2)
-x2  <- rnorm(50,1.5,0.2)  ;  y2 <- rnorm(50,mean=1.5,sd=0.2)
+x1  <- rnorm(50,0.5,0.4)  ;  y1 <- rnorm(50,mean=0.5,sd=0.4)
+x2  <- rnorm(50,1.5,0.4)  ;  y2 <- rnorm(50,mean=1.5,sd=0.4)
 sp1 <- matrix(c(x1,x2,y1,y2),ncol=2,byrow=FALSE)
 ##PLOT DATA
 par(mfrow=c(3,1))
@@ -78,52 +78,18 @@ arrows(1:dim(eg1$wGap)[2],colMeans(eg1$wGap)-colMeans(eg1$seGap), 1:dim(eg1$wGap
 plot(colMeans(eg1$DDwGap),pch=15,type='b',xlab="Number of Clusters", ylab="DDwtGap",ylim=extendrange(colMeans(eg1$DDwGap),f=0.2))
 
 #############################################################
-##two partially overlapping clusters, no guarantee that they are well-separated
-##GENERATE RANDOM DATA
-x1  <- rnorm(50,0.5,0.4)  ;  y1 <- rnorm(50,mean=0.5,sd=0.4)
-x2  <- rnorm(50,1.5,0.4)  ;  y2 <- rnorm(50,mean=1.5,sd=0.4)
-sp2 <- matrix(c(x1,x2,y1,y2),ncol=2,byrow=FALSE)
-##PLOT DATA
-par(mfrow=c(3,1))
-plot(sp2,pch=c(rep(1,50),rep(16,50)))
-
-##IDENTIFY CLUSTERS
-eg2 <- ddwtGap(sp2)
-##PLOT WEIGHTED-GAP AND DD WEIGHTED-GAP
-plot(colMeans(eg2$wGap),pch=15,type='b',xlab="Number of Clusters", ylab="wtGap",ylim=extendrange(colMeans(eg2$wGap),f=0.2))
-arrows(1:dim(eg2$wGap)[2],colMeans(eg2$wGap)-colMeans(eg2$seGap), 1:dim(eg2$wGap)[2],colMeans(eg2$wGap)+colMeans(eg2$seGap),length=0.05,angle=90,code=3)
-plot(colMeans(eg2$DDwGap),pch=15,type='b',xlab="Number of Clusters", ylab="DDwtGap",ylim=extendrange(colMeans(eg2$DDwGap),f=0.2))
-
-#############################################################
-##two partially overlapping clusters, *always* struggles to statistically distinguish them
-##GENERATE RANDOM DATA
-x1  <- rnorm(50,0.5,0.65)  ;  y1 <- rnorm(50,mean=0.5,sd=0.65)
-x2  <- rnorm(50,1.5,0.65)  ;  y2 <- rnorm(50,mean=1.5,sd=0.65)
-sp3 <- matrix(c(x1,x2,y1,y2),ncol=2,byrow=FALSE)
-##PLOT DATA
-par(mfrow=c(3,1))
-plot(sp3,pch=c(rep(1,50),rep(16,50)))
-
-##IDENTIFY CLUSTERS
-eg3 <- ddwtGap(sp3)
-##PLOT WEIGHTED-GAP AND DD WEIGHTED-GAP
-plot(colMeans(eg3$wGap),pch=15,type='b',xlab="Number of #Clusters",ylab="wtGap",ylim=extendrange(colMeans(eg3$wGap),f=0.2))
-arrows(1:dim(eg3$wGap)[2],colMeans(eg3$wGap)-colMeans(eg3$seGap), 1:dim(eg3$wGap)[2],colMeans(eg3$wGap)+colMeans(eg3$seGap),length=0.05,angle=90,code=3)
-
-#############################################################
 ##use real data
 data(iris)
 ##COMPARE THE RESULTS USING kmeans TO hclust.
 irisHC <- ddwtGap(iris[,-5])
-irisHC	##consistently finds three well-separated clusters using DDwGap and wGap
 irisKM <- ddwtGap(iris[,-5], method="km")				
-irisKM	##consistently finds only two well-separated clusters using DDwGap; wGap is not consistent. 
 
 ##HOW WELL DOES THE hclust METHOD DO?
 irisR <- dimReduct(iris[,-5])
 modelDefn <- cutree(hclust(dist(irisR)),3)
 tapply(modelDefn,list(modelDefn,iris[,5]),length)
-##overlaps on versicolor, but gets I. setosa and I. virginica pretty bang on.  NB labels in modelDefn (1,2 or 3) are arbitrary.
+##overlaps on versicolor, but gets I. setosa and I. virginica pretty bang oN
+##Labels in modelDefn (1,2 or 3) are arbitrary.
 
 ##TRY THE STRIPPED-DIMENSION DATA	
 irisR <- dimReduct(iris[,-5])

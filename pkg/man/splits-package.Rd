@@ -1,7 +1,6 @@
 \name{splits-package}
-\alias{splits-package}
 \alias{splits}
-\keyword{package}{splits}
+\keyword{package}
 
 \title{SPecies LImits by Threshold Statistics}
 
@@ -27,12 +26,6 @@ Maintainer: Thomas H.G. Ezard \email{thomas.ezard [at] imperial [dot] ac [dot] u
 \seealso{\code{\link{ddwtGap}}, \code{\link{gmyc}}}
 
 \examples{
-data(test.tr)
-test1 <- gmyc(test.tr, method="single", interval=c(0, 10))
-summary(test1)
-
-data(iris)
-irisR <- dimReduct(iris[,-5])
-ddwtGap(as.matrix(irisR),maxClust=10,nRep=50)
+##see those on by following the links above
 
 }
