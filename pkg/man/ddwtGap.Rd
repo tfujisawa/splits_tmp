@@ -84,21 +84,7 @@ plot(colMeans(eg1$DDwGap),pch=15,type='b',ylim=extendrange(colMeans(eg1$DDwGap),
 #############################################################
 ##use real data
 data(iris)
-##COMPARE THE RESULTS USING kmeans TO hclust.
-irisHC <- ddwtGap(iris[,-5])
-irisKM <- ddwtGap(iris[,-5], method="km")				
-
-##HOW WELL DOES THE hclust METHOD DO?
 irisR <- dimReduct(iris[,-5])
-modelDefn <- cutree(hclust(dist(irisR)),3)
-tapply(modelDefn,list(modelDefn,iris[,5]),length)
-##overlaps on versicolor, but gets I. setosa and I. virginica pretty bang oN
-##Labels in modelDefn (1,2 or 3) are arbitrary.
-
-##TRY THE STRIPPED-DIMENSION DATA	
-irisR <- dimReduct(iris[,-5])
-modelDefn <- cutree(hclust(dist(irisR)),3)
-tapply(modelDefn,list(modelDefn,iris[,5]),length)
-##better
+irisHC <- ddwtGap(irisR)
 
 }
