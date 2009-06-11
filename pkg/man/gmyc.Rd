@@ -2,22 +2,7 @@
 
 Monaghan, M.T., Wild, R., Elliot, M., Fujisawa, T., Balke, M., Inward, D.J.G., Lees, D.C., Ranaivosolo, R., Eggleton, P., Barraclough, T.G., Vogler, AP. Submitted. Accelerated species inventory on Madagascar using coalescent-based models of species delineation.
 
-Pons, J, Barraclough, TG, Gomez-Zurita, J, Cardoso, A, Duran, DP, Hazell, S, Kamoun, S, Sumlin, WD, Vogler, AP,2006. Sequence-based species delimitation for the DNA taxonomy of undescribed insects. Systematic Biology. 55:595-609.}\author{Tomochika Fujisawa \email{tomochika.fujisawa05@imperial.ac.uk} and Tim Barraclough \email{t.barraclough@imperial.ac.uk}}\section{Warning }{The multiple threshold version works, but is very experimental (highly sensitive to initial conditions) and takes a long time to run.}\seealso{\code{\link{spec.list}}, \code{\link{test.tr}}}\examples{
+Pons, J, Barraclough, TG, Gomez-Zurita, J, Cardoso, A, Duran, DP, Hazell, S, Kamoun, S, Sumlin, WD, Vogler, AP,2006. Sequence-based species delimitation for the DNA taxonomy of undescribed insects. Systematic Biology. 55:595-609.}\author{Tomochika Fujisawa \email{tomochika.fujisawa05@imperial.ac.uk} and Tim Barraclough \email{t.barraclough@imperial.ac.uk}}\section{Warning }{The multiple threshold version works, but is very experimental (highly sensitive to initial conditions) and takes a long time to run.}\seealso{\code{\link{spec.list}}, \code{\link{test.tr}}}\examples{data(test.tr)
+##run the single threshold modeltest1 <- gmyc(test.tr, method="single", interval=c(0, 10))summary(test1)  ##show summary results
 
-data(test.tr)
-##run the single threshold model
-test1 <- gmyc(test.tr, method="single", interval=c(0, 10))
-summary(test1)  ##show summary results
-
-plot(test1)  ##plot results
-
-##run the multiple threshold model
-
-test2 <- gmyc(test.tr, method="multiple", interval= c(0, 10))
-
-summary(test2)
-
-plot(test2)
-
-compare(test1,test2)  ## compare multiple vs single threshold models
-##Multiple threshold model is not a significant improvement in this case}
+plot(test1)##plot results##un-comment to run the multiple threshold model, NOTE it takes a long time##test2 <- gmyc(test.tr, method="multiple", interval= c(0, 10))##summary(test2)##plot(test2)##compare(test1,test2) ##compare multiple vs single threshold models, former a significant improvement here}
