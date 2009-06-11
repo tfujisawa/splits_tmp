@@ -81,10 +81,4 @@ arrows(1:dim(eg1$wGap)[2],colMeans(eg1$wGap)-colMeans(eg1$seGap),
 plot(colMeans(eg1$DDwGap),pch=15,type='b',ylim=extendrange(colMeans(eg1$DDwGap),f=0.2),
     xlab="Number of Clusters", ylab="DDwtGap")
 
-#############################################################
-##use real data
-data(iris)
-irisR <- dimReduct(iris[,-5])
-irisHC <- ddwtGap(irisR)
-
 }
