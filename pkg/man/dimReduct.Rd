@@ -26,12 +26,12 @@ Multiple measurements on a focal individual are often highly correlated.  Simila
 \value{
   \item{sS}{A matrix of predicted values from the PCA, with observations as rows and model predictions as columns.}}
 
-\author{Thomas H.G. Ezard \email{thomas.ezard [at] imperial.ac.uk}, but the hard work for PA by Alexis Dinno (see \code{\link[paran]{paran}})}
+\author{Thomas H.G. Ezard \email{tomezard [at] gmail [dot] com}, but the hard work for PA by Alexis Dinno (see \code{\link[paran]{paran}})}
 
 \references{
 Dinno, A. in press. Implementing Horns Parallel Analysis for Principal Components Analysis and Factor Analysis. The Stata Journal.
 
-Ezard, T.H.G., Pearson, P.N. & Purvis, A. in some stage of rejection.  Algorithmic Approaches to Delimit Species in Multidimensional Morphospace.
+Ezard, T.H.G., Pearson, P.N. & Purvis, A. 2010.  Algorithmic Approaches to Delimit Species in Multidimensional Morphospace. BMC Evol. Biol. 10: 175, doi:10.1186/1471-2148-10-175.
 
 Glorfeld, L. W. 1995. An Improvement on Horn's Parallel Analysis Methodology for Selecting the Correct Number of Factors to Retain. Ed. Psych.Meas. 55, 377-393
 

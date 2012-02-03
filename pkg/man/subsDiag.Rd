@@ -33,10 +33,10 @@ A list containing:
   \item{influence}{The index of infleuntial observations.}
   \item{distance}{The index of extreme observations.}
 }
-\author{Thomas H.G. Ezard \email{thomas.ezard [at] imperial [dot] ac [dot] uk}}
+\author{Thomas H.G. Ezard \email{tomezard [at] gmail [dot] com}}
 \references{
 Brooks, S. P. 1994. Diagnostics for Principal Components: Influence Functions as Diagnostic Tools. The Statistician 43:483-494.
-Ezard, T.H.G., Pearson, P.N. & Purvis, A. in review.  Algorithmic Approaches to Delimit Species in Multidimensional Morphospace.
+Ezard, T.H.G., Pearson, P.N. & Purvis, A. 2010.  Algorithmic Approaches to Delimit Species in Multidimensional Morphospace. BMC Evol. Biol. 10: 175, doi:10.1186/1471-2148-10-175.
 Fung, W.-K. 1999. Outlier Diagnostics in Several Multivariate Samples. The Statistician 48:73-84.
 }
 \seealso{\code{\link{dimReduct}}, \code{\link{ddwtGap}}}

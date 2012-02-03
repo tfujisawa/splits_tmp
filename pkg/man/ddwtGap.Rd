@@ -43,12 +43,12 @@ A list containing:
 \item{allGhatDD}{all Ghats: the number of well separated clusters from each simulation/for each truth based on DDwGap.}
 \item{wGap}{A matrix of weighted gap statistics (Tibshirani et al., 2001) for each truth and number of clusters.}
 \item{seGap}{The standard errors associated with each wGap entry.}
-\item{DDwGap}The double difference weighted gap statistic (Yan & Ye, 2007) for each truth and number of clusters.}
+\item{DDwGap}{The double difference weighted gap statistic (Yan and Ye, 2007) for each truth and number of clusters.}
 
 \references{
 Dudoit, S., and J. Fridlyand. 2002. A prediction-based resampling method for estimating the number of clusters in a dataset. Gen. Biol. 3::research0036.1-0036.21.
 
-Ezard, T.H.G., Pearson, P.N. & Purvis, A. in review.  Algorithmic Approaches to Delimit Species in Multidimensional Morphospace.
+Ezard, T.H.G., Pearson, P.N. & Purvis, A. 2010.  Algorithmic Approaches to Delimit Species in Multidimensional Morphospace. BMC Evol. Biol. 10: 175, doi:10.1186/1471-2148-10-175.
 
 Fraley, C., and A. E. Raftery. 2002. Model-based clustering, discriminant analysis, and density estimation. J. Amer. Stat. Ass. 97:611-631.
 
@@ -58,7 +58,7 @@ Tibshirani, R., G. Walther, and T. Hastie. 2001. Estimating the number of data c
 
 Yan, M., and K. Ye. 2007. Determining the Number of Clusters Using the Weighted Gap statistic. Biometrics 63:1031-1037.
 }
-\author{Thomas H.G. Ezard \email{thomas.ezard [at] imperial [dot] ac [dot] uk}}
+\author{Thomas H.G. Ezard \email{tomezard [at] gmail [dot] com}}
 \seealso{\code{\link{dimReduct}}, \code{\link{subsDiag}}}
 \examples{
 #############################################################
