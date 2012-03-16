@@ -31,19 +31,19 @@ The significance of improvements in fit was assessed using Monte Carlo simulatio
 
 Yan and Ye (2007) used one 'true' data set.  In an ideal world, allGhat below shows no variance.  Since different starting points for clustering algorithms can generate different clusters however, our approach repeats calculation \code{nTruth} times. 
 
-Yan & Ye (2007) used \code{link{kmeans}}, which (assuming two-dimensions) is biased towards identification of circular groups (i.e. equal radii in all dimensions, Tibshirani and Walther, 2005).  In reality, species may ordinate themselves in non-circular morphospace.  Hierarchical methods are more appropriate in the case of (partially-) nested designs, such as individuals within species: broader groups contain smaller ones nearer to the tips of the dendrogram.  Similarity is typically measured using Euclidean distance.  To obtain k groups using hierarchical clustering \code{link{hclust}}, detail beneath the (k-1)th split is neglected.  Other methods are available, note especially the Bayesian approaches outlined by Fraley and Raftery (2002) in \code{\link[mclust]{Mclust}}, which, amongst others, allows cluster shapes to have a multitude of different shapes (e.g. egg-shaped clusters).
+Yan & Ye (2007) used \code{link{kmeans}}, which (assuming two-dimensions) is biased towards identification of circular groups (i.e. equal radii in all dimensions, Tibshirani and Walther, 2005).  In reality, species may ordinate themselves in non-circular morphospace.  Hierarchical methods are more appropriate in the case of (partially-) nested designs, such as individuals within species: broader groups contain smaller ones nearer to the tips of the dendrogram.  Similarity is typically measured using Euclidean distance.  To obtain k groups using hierarchical clustering \code{link{hclust}}, detail beneath the (k-1)th split is neglected.  Other methods are available, note especially the Bayesian approaches outlined by Fraley and Raftery (2002) in \code{\link[mclust]{Mclust}}, which, amongst others, allows cluster shapes to have a multitude of different shapes (e.g. egg-shaped clusters).}
 
-}
 
 \value{
 A list containing:
-\item{mnGhatWG}{The mean number of well separated clusters based on wGap.}
-\item{allGhatWG}{all Ghats: the number of well separated clusters from each simulation/for each truth based on wGap.}
-\item{mnGhatDD}{The mean number of well separated clusters based on DDwGap.}
-\item{allGhatDD}{all Ghats: the number of well separated clusters from each simulation/for each truth based on DDwGap.}
-\item{wGap}{A matrix of weighted gap statistics (Tibshirani et al., 2001) for each truth and number of clusters.}
-\item{seGap}{The standard errors associated with each wGap entry.}
-\item{DDwGap}{The double difference weighted gap statistic (Yan and Ye, 2007) for each truth and number of clusters.}
+  \item{mnGhatWG}{The mean number of well separated clusters based on wGap.}
+  \item{allGhatWG}{all Ghats: the number of well separated clusters from each simulation for each truth based on wGap.}
+  \item{mnGhatDD}{The mean number of well separated clusters based on DDwGap.}
+  \item{allGhatDD}{all Ghats: the number of well separated clusters from each simulation/for each truth based on DDwGap.}
+  \item{wGap}{A matrix of weighted gap statistics (Tibshirani et al., 2001) for each truth and number of clusters.}
+  \item{seGap}{The standard errors associated with each wGap entry.}
+  \item{DDwGap}{The double difference weighted gap statistic (Yan and Ye, 2007) for each truth and number of clusters.}
+}
 
 \references{
 Dudoit, S., and J. Fridlyand. 2002. A prediction-based resampling method for estimating the number of clusters in a dataset. Gen. Biol. 3::research0036.1-0036.21.
