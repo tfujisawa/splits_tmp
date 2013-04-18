@@ -22,11 +22,7 @@ function(object, second.peak=FALSE, ...) {
 				{LR <- 2*(object$likelihood[peak]-object$likelihood[1])}
 	cat("\n\tlikelihood ratio:\t", LR, sep="")
 
-	if (object[["method"]] == "single") {
-		pvalue <- 1-pchisq(LR, 3)
-	}  else if (object[["method"]] == "multiple" || object[["method"]] == "exhaustive") {
-		pvalue <- 1 - pchisq(LR, 3 + length(object$threshold.time[[which.max(object$likelihood)]]) - 1)
-	}
+	pvalue <- 1-pchisq(LR, 2)	#revised chisq test
 	
 	cat("\n\tresult of LR test:\t", pvalue, ifelse(pvalue<0.001, "***", ifelse(pvalue<0.01, "**", ifelse(pvalue<0.05, "*", "n.s."))), sep="")
 	
