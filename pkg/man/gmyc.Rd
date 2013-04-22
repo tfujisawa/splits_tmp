@@ -2,7 +2,6 @@
 \alias{gmyc}
 \alias{plot.gmyc}
 \alias{summary.gmyc}
-\alias{compare}
 \alias{remove.terminal.zeros}
 \alias{spec.list}
 
@@ -23,7 +22,7 @@ gmyc(tr, method = "single", interval = c(0, 5), quiet = FALSE)
 }
 
 \details{
-The function optimizes the likelihood function described in Pons et al. 2006, which specifies the likelihood of branching intervals assuming: i) between species branching according to a Yule model or assuming evenly increasing or decreasing net speciation rates towards the present; ii) coalescence within species according to a neutral coalescent or with evenly increasing or decreasing rates of coalescent branching towards the ancestral node. The single threshold version uses a single threshold to specify the transition from between- to within-species branching. The multiple threshold version starts with a single threshold, but uses an iterative algorithm to test whether relaxation of the single threshold leads to a significant improvement in model fit (described in Monghan et al. submitted). After completing optimization, use plot to see the likelihood surface, a log-lineage through time plot and a tree with clusters indicated. Use summary to summarize the output statistics, including a log-likelihood ratio test of the fitted model against a null model of no distinct species clusters. Use compare(x1,x2) to perform a log likelihood ratio test of a multiple threshold and single threshold solutions for the same tree.
+The function optimizes the likelihood function described in Pons et al. 2006, which specifies the likelihood of branching intervals assuming: i) between species branching according to a Yule model or assuming evenly increasing or decreasing net speciation rates towards the present; ii) coalescence within species according to a neutral coalescent or with evenly increasing or decreasing rates of coalescent branching towards the ancestral node. The single threshold version uses a single threshold to specify the transition from between- to within-species branching. The multiple threshold version starts with a single threshold, but uses an iterative algorithm to test whether relaxation of the single threshold leads to a significant improvement in model fit (described in Monghan et al. submitted). After completing optimization, use plot to see the likelihood surface, a log-lineage through time plot and a tree with clusters indicated. Use summary to summarize the output statistics, including a log-likelihood ratio test of the fitted model against a null model of no distinct species clusters.
 }
 
 \note{
@@ -76,8 +75,6 @@ plot(test1)
 #test2 <- gmyc(test.tr, method="multiple", interval= c(0, 10))
 #summary(test2)
 #plot(test2)
-#compare(test1,test2) 
-##compare multiple vs single threshold models, former a significant improvement here
 
 }
 
