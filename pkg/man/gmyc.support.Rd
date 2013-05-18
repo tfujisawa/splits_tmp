@@ -19,7 +19,7 @@ confset.gmyc(object, p=0.95)
 }
 
 \details{
-The function \code{gmyc.support} calculate the support values of the GMYC-delimited species by using the multimodel comparison approach described by Burnham & Anderson (2002). The support value of a node is defined as the sum of Akaike weights of candidate delimitation models in which the node is included. Only models included in the p\% confidence set obtained by \code{confset.gmyc} are used for calculation. See reference papers for further details. 
+The function \code{gmyc.support} calculates support values of the GMYC-delimited species by using the multimodel comparison approach described by Burnham & Anderson (2002). The support value of a node is defined as the sum of Akaike weights of candidate delimitation models in which the node is included. Only models included in the p\% confidence set obtained by \code{confset.gmyc} are used for calculation. See reference papers for further details. 
 }
 
 \value{
