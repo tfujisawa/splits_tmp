@@ -59,7 +59,7 @@ Fujisawa, T and Barraclough T.G. in press. Delimiting species using single locus
 
 The likelihood ratio test by summary.gmyc is now revised with a new interpretion of threshold time, and results using older splits packages (<= 1.0-14) need revisions. Any result using former versions with a P-value <= 0.112 will be significant.}
 
-\seealso{\code{\link{spec.list}}, \code{\link{test.tr}}}
+\seealso{\code{\link{spec.list}}, \code{\link{test.tr}}, \code{\link{gmyc.support}}}
 
 \examples{
 data(test.tr)
