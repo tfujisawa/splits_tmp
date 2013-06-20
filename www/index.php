@@ -48,11 +48,11 @@ echo $contents; } ?>
 <b>Notice:</b><br>
 Functions related to the GMYC were updated following the publications of paper about the revised method.
 <br><br>
-<a href="http://sysbio.oxfordjournals.org/content/early/2013/05/16/sysbio.syt033.short">
+<a href="http://sysbio.oxfordjournals.org/content/early/2013/06/14/sysbio.syt033">
 Delimiting Species Using Single-locus Data and the Generalized Mixed Yule Coalescent (GMYC) Approach: A Revised Method and Evaluation on Simulated Datasets
 </a>
 <br><br>
-The custom code for the multiple threhold optimization and simulated gene trees used in the paper are available at Dryad, doi:10.5061/dryad.gv5n3. 
+The custom code for the multiple threhold optimization and simulated gene trees used in the paper are available at Dryad, <a href="http://datadryad.org/resource/doi:10.5061/dryad.0hv88">doi:10.5061/dryad.0hv88</a>. 
 </p>
 
 <p> The <strong>project summary page</strong> you can find <a href="http://<?php echo $domain; ?>/projects/<?php echo $group_name; ?>/"><strong>here</strong></a>. </p>
