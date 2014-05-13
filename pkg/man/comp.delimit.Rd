@@ -30,7 +30,7 @@ Vinh, NX., Epps, J. & Bailey, J. 2010. Information theoretic measures for cluste
 
 }
 
-\author{Tomochika Fujisawa \email{t.fujisawa05@gmail.com} and Jiajie Zhang \email{}}
+\author{Tomochika Fujisawa \email{t.fujisawa05@gmail.com} and Jiajie Zhang \email{Jiajie.Zhang@h-its.org}}
 
 \examples{
 data(test.tr)
